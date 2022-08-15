@@ -8,10 +8,11 @@
     {
         private const int StandartTicTacToeFildRowAndColumn = 3;
 
-        public void Initializer(IPlayer firstPlayer, IPlayer secondPlayer, int fieldRow, int fieldCol)
+        public void Initializer(IPlayer firstPlayer, IPlayer secondPlayer, string firstPlayerName, string secondPlayerName)
         {
             this.Field = new Field(StandartTicTacToeFildRowAndColumn, StandartTicTacToeFildRowAndColumn);
-            this.FirstPlayer = new Player()
+            this.FirstPlayer = new Player(firstPlayerName);
+            this.SecondPlayer = new Player(secondPlayerName);
         }
 
         public IField Field { get; private set; }
