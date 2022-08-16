@@ -4,11 +4,11 @@
     using TicTacToe.Fields;
     using TicTacToe.Players;
 
-    public class TicTacToePlayerVsPlayerEngine : ITicTacToeEngine
+    public class TicTacToePlayerVsPlayerEngine
     {
         private const int StandartTicTacToeFildRowAndColumn = 3;
 
-        public void Initializer(IPlayer firstPlayer, IPlayer secondPlayer, string firstPlayerName, string secondPlayerName)
+        public TicTacToePlayerVsPlayerEngine(IPlayer firstPlayer, IPlayer secondPlayer, string firstPlayerName, string secondPlayerName)
         {
             this.Field = new Field(StandartTicTacToeFildRowAndColumn, StandartTicTacToeFildRowAndColumn);
             this.FirstPlayer = new Player(firstPlayerName);
@@ -17,8 +17,8 @@
 
         public IField Field { get; private set; }
 
-        public IPlayer FirstPlayer { get; set;  }
+        public IPlayer FirstPlayer { get; private set;  }
 
-        public IPlayer SecondPlayer { get; set;  }
+        public IPlayer SecondPlayer { get; private set;  }
     }
 }

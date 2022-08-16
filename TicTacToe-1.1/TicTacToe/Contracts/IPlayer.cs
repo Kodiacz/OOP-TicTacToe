@@ -1,7 +1,7 @@
-﻿using TicTacToe.Common;
-
-namespace TicTacToe.Contracts
+﻿namespace TicTacToe.Contracts
 {
+    using TicTacToe.Common;
+
     public interface IPlayer
     {
         public string Name { get; }
