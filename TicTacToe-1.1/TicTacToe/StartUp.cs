@@ -10,8 +10,10 @@
     {
         static void Main(string[] args)
         {
+            IField field = new Field(3, 3);
             IRenderer renderer = new ConsoleRenderer();
             renderer.RenderMainMenu();
+            renderer.RenderField(field);
             Console.ReadLine();
         }
     }

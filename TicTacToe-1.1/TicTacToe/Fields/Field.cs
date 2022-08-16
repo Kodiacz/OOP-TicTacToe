@@ -17,9 +17,11 @@
             InitializeFieldArray();
         }
 
-        public int TotalRows { get; set; }
+        public int TotalRows { get; private set; }
 
-        public int TotalCols { get; set; }
+        public int TotalCols { get; private set; }
+
+        public IMark[,] GetField => field;
 
         public void MarkSymbol(IMark mark, Position position)
         {
@@ -44,14 +46,14 @@
 
         private void CheckIfPositionIsValid(Position position)
         {
-            if (position.Row < GlobalConstants.StandartMinimumRowLengthOnField || 
-                position.Row > GlobalConstants.StandartMaximumRowLengthOnField)
+            if (position.Row < GlobalConstants.StandartRowLengthOnField || 
+                position.Row > GlobalConstants.StandartRowLengthOnField)
             {
                 throw new IndexOutOfRangeException("Selected row position on the field is not valid");
             }
 
-            if (position.Column < GlobalConstants.StandartMinimumColumnLengthOnField || 
-                position.Column > GlobalConstants.StandartMaximumColumnLengthOnField)
+            if (position.Column < GlobalConstants.StandartColumnLengthOnField || 
+                position.Column > GlobalConstants.StandartColumnLengthOnField)
             {
                 throw new IndexOutOfRangeException("Selected column position on the field is not valid");
             }

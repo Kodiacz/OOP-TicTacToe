@@ -1,5 +1,6 @@
 ﻿namespace TicTacToe.Renderers
 {
+using TicTacToe.Common;
     using TicTacToe.Contracts;
 
     public class ConsoleRenderer : IRenderer
@@ -8,15 +9,22 @@
 
         public void RenderField(IField field)
         {
-            throw new NotImplementedException();
+            for (int row = 0; row < field.TotalRows; row++)
+            {
+                for (int col = 0; col < field.TotalCols; col++)
+                {
+                    //ConsoleHelper.CenterConsoleCursor(field.GetField[row, col].Symbol.ToString());
+
+                    Console.Write(field.GetField[row, col].Symbol);
+                }
+
+                Console.WriteLine();
+            }
         }
 
         public void RenderMainMenu()
         {
-            int centerRow = Console.WindowHeight / 2;
-            int centerCol = Console.WindowWidth / 2 - Logo.Length / 2;
-
-            Console.SetCursorPosition(centerCol, centerRow);
+            ConsoleHelper.CenterConsoleCursor(Logo);
 
             // TODO: add main menu
             Thread.Sleep(1000);
