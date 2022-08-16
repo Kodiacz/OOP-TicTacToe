@@ -9,7 +9,5 @@
         public int TotalCols { get; set; }
 
         public void MarkSymbol(IMark mark, Position position);
-
-        public void DrawFieldOnConsole();
     }
 }

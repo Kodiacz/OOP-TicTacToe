@@ -2,6 +2,8 @@
 {
     public interface IRenderer
     {
-        void Render(string output);
+        void RenderMainMenu();
+
+        void RenderField(IField field);
     }
 }

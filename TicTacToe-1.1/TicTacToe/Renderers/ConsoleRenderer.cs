@@ -4,9 +4,24 @@
 
     public class ConsoleRenderer : IRenderer
     {
-        public void Render(string output)
+        private const string Logo = "Tic-Tac-Toe";
+
+        public void RenderField(IField field)
         {
-            Console.WriteLine(output);
+            throw new NotImplementedException();
+        }
+
+        public void RenderMainMenu()
+        {
+            int centerRow = Console.WindowHeight / 2;
+            int centerCol = Console.WindowWidth / 2 - Logo.Length / 2;
+
+            Console.SetCursorPosition(centerCol, centerRow);
+
+            // TODO: add main menu
+            Thread.Sleep(1000);
+
+            Console.WriteLine(Logo);
         }
     }
 }

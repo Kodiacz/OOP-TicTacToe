@@ -1,5 +1,6 @@
 ﻿namespace TicTacToe.Fields
 {
+    using System.Text;
     using TicTacToe.Common;
     using TicTacToe.Contracts;
     using TicTacToe.Marks;
@@ -29,19 +30,6 @@
             int arrCol = GetArrayColumnPosition(position);
 
             this.field[arrRow, arrCol].Symbol = mark.Symbol;
-        }
-
-        public void DrawFieldOnConsole()
-        {
-            for (int row = 0; row < this.TotalRows; row++)
-            {
-                for (int col = 0; col < this.TotalCols; col++)
-                {
-                    Console.Write(this.field[row, col].Symbol);
-                }
-
-                Console.WriteLine();
-            }
         }
 
         private int GetArrayRowPosition(Position position)
