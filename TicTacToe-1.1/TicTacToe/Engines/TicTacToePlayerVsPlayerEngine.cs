@@ -33,15 +33,5 @@
         {
             throw new NotImplementedException();
         }
-
-        public void RenderField(IField field)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RenderMainMenu()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
