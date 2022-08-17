@@ -1,11 +1,14 @@
 ﻿namespace TicTacToe.Renderers
 {
-using TicTacToe.Common;
+    using TicTacToe.Common;
     using TicTacToe.Contracts;
 
     public class ConsoleRenderer : IRenderer
     {
         private const string Logo = "Tic-Tac-Toe";
+        private const string StringFormatSymbolEmpty = "| |";
+        private const string StringFormatSymbolX = "|X|";
+        private const string StringFormatSymbolO = "|O|";
 
         public void RenderField(IField field)
         {
@@ -13,9 +16,18 @@ using TicTacToe.Common;
             {
                 for (int col = 0; col < field.TotalCols; col++)
                 {
-                    //ConsoleHelper.CenterConsoleCursor(field.GetField[row, col].Symbol.ToString());
-
-                    Console.Write(field.GetField[row, col].Symbol);
+                    if (field.GetField[row, col].Symbol == Symbol.Empty)
+                    {
+                        Console.Write(StringFormatSymbolEmpty);
+                    }
+                    else if (field.GetField[row, col].Symbol == Symbol.X)
+                    {
+                        Console.WriteLine(StringFormatSymbolX);
+                    }
+                    else
+                    {
+                        Console.WriteLine(StringFormatSymbolO);
+                    }
                 }
 
                 Console.WriteLine();
