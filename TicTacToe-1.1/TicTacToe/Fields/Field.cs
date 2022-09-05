@@ -46,14 +46,14 @@
 
         private void CheckIfPositionIsValid(Position position)
         {
-            if (position.Row < GlobalConstants.StandartRowLengthOnField || 
-                position.Row > GlobalConstants.StandartRowLengthOnField)
+            if (position.Row > GlobalConstants.StandartRowLengthOnField || 
+                position.Row < GlobalConstants.Zero)
             {
                 throw new IndexOutOfRangeException("Selected row position on the field is not valid");
             }
 
-            if (position.Column < GlobalConstants.StandartColumnLengthOnField || 
-                position.Column > GlobalConstants.StandartColumnLengthOnField)
+            if (position.Column > GlobalConstants.StandartColumnLengthOnField || 
+                position.Column < GlobalConstants.Zero)
             {
                 throw new IndexOutOfRangeException("Selected column position on the field is not valid");
             }
