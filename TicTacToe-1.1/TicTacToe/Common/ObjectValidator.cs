@@ -4,7 +4,7 @@ namespace TicTacToe.Common
 {
     public class ObjectValidator
     {
-        private const string InvalidNameErrorMessage = "name should be more then 3 chars";
+        private const string InvalidNameErrorMessage = "name should be more than 3 chars";
 
         public static void CheckIfObjectIsNull(object obj, string errorMessage = GlobalConstants.EmptyString)
         {
