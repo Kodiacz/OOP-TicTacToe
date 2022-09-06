@@ -1,12 +1,10 @@
-﻿namespace TicTacToe.Contracts
+﻿using TicTacToe.Common;
+
+namespace TicTacToe.Contracts
 {
     public interface ITicTacToeEngine
     {
-        void RenderMainMenu();
-
-        void RenderField(IField field);
-
-        void MovePlayer(IPlayer player);
+        void MovePlayer(IPlayer player, Position position);
 
         void CheckForWiner();
     }

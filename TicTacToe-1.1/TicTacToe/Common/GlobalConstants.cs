@@ -7,6 +7,7 @@
         public const string NullReferenceErrorMessage = "Object cannot be null";
 
         public const int StandartRowLengthOnField = 3;
+        public const int Zero = 0;
 
         public const char StandartColumnLengthOnField = 'c';
     }
