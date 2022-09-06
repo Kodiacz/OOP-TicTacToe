@@ -5,16 +5,10 @@
 
     public class Player : IPlayer
     {
-        public Player(string name)
+        public Player(string name, Symbol symbol)
         {
             this.Name = name;
-            this.Symbol = new Symbol();
-        }
-
-        public Player(string name, Symbol symbol)
-            : this(name)
-        {
-            this.Symbol = Symbol;
+            this.Symbol = symbol;
         }
 
         public string Name { get; private set; }
@@ -23,7 +17,7 @@
 
         public int Points { get; private set; }
 
-        private void IncreasePoints()
+        public void IncreasePoints()
         {
             this.Points++;
         }

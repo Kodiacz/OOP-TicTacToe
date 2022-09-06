@@ -12,8 +12,7 @@
     {
         static void Main(string[] args)
         {
-            IField field = new Field(2, 2);
-            IPlayer player = new Player("test");
+            IField field = new Field(3, 3);
             Position position = new Position(1, 'a');
             GameInputs input = new GameInputs();
             IRenderer renderer = new ConsoleRenderer();
@@ -28,6 +27,8 @@
 
             Console.WriteLine(players[0].Symbol);
             Console.WriteLine(players[1].Symbol);
+
+            renderer.RenderField(field);
         }
     }
 }

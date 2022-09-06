@@ -20,8 +20,7 @@
             this.renderer = renderer;
             this.inputs = inputs;
             var players = inputs.GetPlayers(StandartNumberOfPlayers).ToList();
-            this.SecondPlayer = players[0];
-            this.FirstPlayer = players[1];
+            CreatePlayers(players);
         }
 
         public IField Field { get; private set; }
@@ -42,9 +41,10 @@
             this.Field.MarkSymbol(mark, position);
         }
 
-        private void CreatePlayers()
+        private void CreatePlayers(List<IPlayer> players)
         {
-
+            this.FirstPlayer = players[0];
+            this.SecondPlayer = players[1];
         }
     }
 }

@@ -17,9 +17,12 @@
                 string playerName = Console.ReadLine();
                 ObjectValidator.CheckPlayerName(playerName);
 
-                IPlayer player = new Player(playerName);
-                player.Symbol = (Symbol)i;
+                Symbol symbol = (Symbol)i;
+                IPlayer player = new Player(playerName, symbol);
+
                 players.Add(player);
+
+                Console.Clear();
             }
 
             ObjectValidator.CheckIfNamesAreEqual(players[0].Name, players[1].Name);
