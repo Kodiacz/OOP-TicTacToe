@@ -22,6 +22,8 @@
                 players.Add(player);
             }
 
+            ObjectValidator.CheckIfNamesAreEqual(players[0].Name, players[1].Name);
+
             return players;
         }
     }
