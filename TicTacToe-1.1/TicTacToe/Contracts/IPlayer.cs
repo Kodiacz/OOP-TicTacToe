@@ -6,8 +6,8 @@
     {
         public string Name { get; }
 
-        public Symbol Symbol { get; set; }
+        public Symbol Symbol { get; }
 
-        public int Points { get; set; }
+        public int Points { get; }
     }
 }

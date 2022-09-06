@@ -19,8 +19,13 @@
 
         public string Name { get; private set; }
 
-        public Symbol Symbol { get; set; }
+        public Symbol Symbol { get; private set; }
 
-        public int Points { get; set; }
+        public int Points { get; private set; }
+
+        private void IncreasePoints()
+        {
+            this.Points++;
+        }
     }
 }
