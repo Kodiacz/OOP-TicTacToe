@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using TicTacToe.Contracts;
 
 namespace TicTacToe.Common
 {
@@ -6,6 +7,7 @@ namespace TicTacToe.Common
     {
         private const string InvalidNameErrorMessage = "name should be more than 3 chars";
         private const string EqualNamesErrorMessage = "names should be different, chose another name";
+        private const string InvalidMarkErrorMessage = "this box is already marked, choose another box";
 
         public static void CheckIfObjectIsNull(object obj, string errorMessage = GlobalConstants.EmptyString)
         {
@@ -32,6 +34,18 @@ namespace TicTacToe.Common
             {
                 throw new InvalidCastException(EqualNamesErrorMessage);
             }
+        }
+
+        public static void IsMarked(IField field, Position position)
+        {
+            // TODO: logic to find certain position on field
+            IMark fieldMark = field.GetFieldCertainPosition(position);
+
+            if (fieldMark.Symbol == Symbol.X || fieldMark.Symbol == Symbol.O)
+            {
+                throw new InvalidDataException(InvalidMarkErrorMessage);
+            }
+
         }
     }
 }
