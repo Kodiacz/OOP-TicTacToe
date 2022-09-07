@@ -8,8 +8,10 @@
 
         public int TotalCols { get; }
 
-        public IMark[,] GetField { get; }
-
         public void MarkSymbol(IMark mark, Position position);
+
+        public IMark GetFieldCertainPosition(Position position);
+
+        public IMark[,] GetField { get; }
     }
 }

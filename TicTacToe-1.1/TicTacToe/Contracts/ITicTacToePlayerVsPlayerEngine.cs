@@ -1,4 +1,6 @@
-﻿namespace TicTacToe.Contracts
+﻿using TicTacToe.Common;
+
+namespace TicTacToe.Contracts
 {
     public interface ITicTacToePlayerVsPlayerEngine : ITicTacToeEngine
     {
@@ -7,5 +9,9 @@
         IPlayer FirstPlayer { get; }
 
         IPlayer SecondPlayer { get; }
+
+        void MoveFirstPlayer(Position position);
+
+        void MoveSecondPlayer(Position position);
     }
 }

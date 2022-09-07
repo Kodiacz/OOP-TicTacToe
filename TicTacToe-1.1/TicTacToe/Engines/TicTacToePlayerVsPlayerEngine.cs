@@ -13,6 +13,7 @@
 
         private readonly IRenderer renderer;
         private readonly GameInputs inputs;
+        private IMark mark = new Mark();
 
         public TicTacToePlayerVsPlayerEngine(IRenderer renderer, GameInputs inputs)
         {
@@ -34,11 +35,27 @@
             throw new NotImplementedException();
         }
 
-        public void MovePlayer(IPlayer player, Position position)
+        public void MoveFirstPlayer(Position position)
         {
-            IMark mark = new Mark();
-            mark.Symbol = player.Symbol;
+            this.mark.Symbol = this.FirstPlayer.Symbol;
+
+            ObjectValidator.IsMarked(this.Field, position);
+
             this.Field.MarkSymbol(mark, position);
+        }
+
+        public void MoveSecondPlayer(Position position)
+        {
+            this.mark.Symbol = this.FirstPlayer.Symbol;
+
+            ObjectValidator.IsMarked(this.Field, position);
+
+            this.Field.MarkSymbol(mark, position);
+        }
+
+        public void PrintFieldOnConsole()
+        {
+            renderer.RenderField(this.Field);
         }
 
         private void CreatePlayers(List<IPlayer> players)

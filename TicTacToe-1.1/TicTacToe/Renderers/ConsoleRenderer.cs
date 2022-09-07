@@ -14,23 +14,43 @@
         {
             for (int row = 0; row < field.TotalRows; row++)
             {
+                if (row == 0)
+                {
+                    Console.WriteLine("   a  b  c");
+                }
+
                 for (int col = 0; col < field.TotalCols; col++)
                 {
+                    if (col == 0)
+                    {
+                        Console.Write(field.TotalCols - row + " ");
+                    }
+
                     if (field.GetField[row, col].Symbol == Symbol.Empty)
                     {
                         Console.Write(StringFormatSymbolEmpty);
                     }
                     else if (field.GetField[row, col].Symbol == Symbol.X)
                     {
-                        Console.WriteLine(StringFormatSymbolX);
+                        Console.Write(StringFormatSymbolX);
                     }
                     else
                     {
-                        Console.WriteLine(StringFormatSymbolO);
+                        Console.Write(StringFormatSymbolO);
                     }
+
+                    if (col == field.TotalCols - 1)
+                    {
+                        Console.Write(" " + (field.TotalCols - row));
+                    } 
                 }
 
                 Console.WriteLine();
+
+                if (row == field.TotalRows - 1)
+                {
+                    Console.Write("   a  b  c");
+                }
             }
         }
 

@@ -17,18 +17,15 @@
             GameInputs input = new GameInputs();
             IRenderer renderer = new ConsoleRenderer();
             ITicTacToePlayerVsPlayerEngine engine = new TicTacToePlayerVsPlayerEngine(renderer, input);
-            engine.MovePlayer(player, position);
+            engine.MoveFirstPlayer(position);
+            IMark[,] secondField = field.GetField;
+            secondField[0, 1].Symbol = Symbol.O;
 
             renderer.RenderMainMenu();
-            renderer.RenderField(field);
+            engine.PrintFieldOnConsole();
             Console.ReadLine();
-            GameInputs inputs = new GameInputs();
-            var players = inputs.GetPlayers(2).ToList();
 
-            Console.WriteLine(players[0].Symbol);
-            Console.WriteLine(players[1].Symbol);
-
-            renderer.RenderField(field);
+            engine.PrintFieldOnConsole();
         }
     }
 }

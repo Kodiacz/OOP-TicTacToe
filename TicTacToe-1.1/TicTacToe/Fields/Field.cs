@@ -21,7 +21,7 @@
 
         public int TotalCols { get; private set; }
 
-        public IMark[,] GetField => field;
+        public IMark[,] GetField => (IMark[,])this.field.Clone();
 
         public void MarkSymbol(IMark mark, Position position)
         {
@@ -32,6 +32,14 @@
             int arrCol = GetArrayColumnPosition(position);
 
             this.field[arrRow, arrCol].Symbol = mark.Symbol;
+        }
+
+        public IMark GetFieldCertainPosition(Position position)
+        {
+            int arrRow = GetArrayRowPosition(position);
+            int arrCol = GetArrayColumnPosition(position);
+
+            return this.field[arrRow, arrCol];
         }
 
         private int GetArrayRowPosition(Position position)
