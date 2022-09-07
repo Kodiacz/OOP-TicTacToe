@@ -18,8 +18,7 @@
             IRenderer renderer = new ConsoleRenderer();
             ITicTacToePlayerVsPlayerEngine engine = new TicTacToePlayerVsPlayerEngine(renderer, input);
             engine.MoveFirstPlayer(position);
-            IMark[,] secondField = field.GetField;
-            secondField[0, 1].Symbol = Symbol.O;
+            engine.MoveSecondPlayer(position);
 
             renderer.RenderMainMenu();
             engine.PrintFieldOnConsole();

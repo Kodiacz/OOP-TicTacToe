@@ -38,7 +38,6 @@ namespace TicTacToe.Common
 
         public static void IsMarked(IField field, Position position)
         {
-            // TODO: logic to find certain position on field
             IMark fieldMark = field.GetFieldCertainPosition(position);
 
             if (fieldMark.Symbol == Symbol.X || fieldMark.Symbol == Symbol.O)
