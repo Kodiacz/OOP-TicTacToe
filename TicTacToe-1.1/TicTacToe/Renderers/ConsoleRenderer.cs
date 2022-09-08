@@ -52,6 +52,8 @@
                     Console.Write("   a  b  c");
                 }
             }
+
+            Console.WriteLine();
         }
 
         public void RenderMainMenu()

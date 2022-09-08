@@ -29,5 +29,17 @@
 
             return players;
         }
+
+        public Position GetPositinInput()
+        {
+            Console.Write("Choose row for position: ");
+            int row = int.Parse(Console.ReadLine());
+
+            Console.Write("Choose column for position: ");
+            char column = char.Parse(Console.ReadLine());
+
+            Position position = new Position(row, column);
+            return position;
+        }
     }
 }

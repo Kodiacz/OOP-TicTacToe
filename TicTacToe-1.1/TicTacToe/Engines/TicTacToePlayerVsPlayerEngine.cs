@@ -32,7 +32,11 @@
 
         public void CheckForWiner()
         {
-            throw new NotImplementedException();
+            if (CheckRowForMatch() || CheckColumnForMatch() ||
+                CheckLeftRightDiagonalForMatch() || CheckLeftRightDiagonalForMatch())
+            {
+                // TODO: Right Logic:
+            }
         }
 
         public void MoveFirstPlayer(Position position)
