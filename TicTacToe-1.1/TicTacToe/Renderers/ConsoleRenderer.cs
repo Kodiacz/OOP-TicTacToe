@@ -38,19 +38,9 @@
                     {
                         Console.Write(StringFormatSymbolO);
                     }
-
-                    if (col == field.TotalCols - 1)
-                    {
-                        Console.Write(" " + (field.TotalCols - row));
-                    } 
                 }
 
                 Console.WriteLine();
-
-                if (row == field.TotalRows - 1)
-                {
-                    Console.Write("   a  b  c");
-                }
             }
 
             Console.WriteLine();
@@ -74,6 +64,11 @@
         public void Clear()
         {
             Console.Clear();
+        }
+
+        public void AddNewLine()
+        {
+            Console.WriteLine();
         }
     }
 }

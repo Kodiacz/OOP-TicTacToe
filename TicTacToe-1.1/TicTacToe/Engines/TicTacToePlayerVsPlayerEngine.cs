@@ -35,8 +35,9 @@
             if (CheckRowForMatch(player.Symbol) || CheckColumnForMatch(player.Symbol) ||
                 CheckRightLeftDiagonalForMatch(player.Symbol) || CheckLeftRightDiagonalForMatch(player.Symbol))
             {
-                // TODO: Right Logic:
+                this.renderer.AddNewLine();
                 this.renderer.AnnounceWinner(player);
+                this.renderer.RenderField(this.Field);
                 return true;
             }
 

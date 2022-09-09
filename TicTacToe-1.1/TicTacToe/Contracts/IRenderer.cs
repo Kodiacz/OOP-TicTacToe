@@ -9,5 +9,7 @@
         void AnnounceWinner(IPlayer player);
 
         void Clear();
+
+        void AddNewLine();
     }
 }
