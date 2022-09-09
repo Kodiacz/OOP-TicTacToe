@@ -13,5 +13,7 @@
         public IMark GetFieldCertainPosition(Position position);
 
         public IMark[,] GetField { get; }
+
+        public bool IsFull();
     }
 }

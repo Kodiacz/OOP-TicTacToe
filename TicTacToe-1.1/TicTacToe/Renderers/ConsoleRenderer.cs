@@ -76,5 +76,10 @@
             Console.WriteLine($"{player.Name}'s Turn");
 
         }
+
+        public void PrintDraw()
+        {
+            Console.WriteLine("Draw");
+        }
     }
 }

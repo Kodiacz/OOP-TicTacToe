@@ -32,14 +32,20 @@
 
         public bool CheckForWiner(IPlayer player)
         {
+            this.renderer.AddNewLine();
+
             if (CheckRowForMatch(player.Symbol) || CheckColumnForMatch(player.Symbol) ||
                 CheckRightLeftDiagonalForMatch(player.Symbol) || CheckLeftRightDiagonalForMatch(player.Symbol))
             {
-                this.renderer.AddNewLine();
                 this.renderer.AnnounceWinner(player);
-                this.renderer.RenderField(this.Field);
                 return true;
             }
+            else if (this.Field.IsFull())
+            {
+                this.renderer.PrintDraw();
+            }
+
+            this.renderer.RenderField(this.Field);
 
             return false;
         }

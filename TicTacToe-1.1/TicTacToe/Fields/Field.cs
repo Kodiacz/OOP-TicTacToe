@@ -42,6 +42,22 @@
             return this.field[arrRow, arrCol];
         }
 
+        public bool IsFull()
+        {
+            for (int row = 0; row < this.TotalRows; row++)
+            {
+                for (int col = 0; col < this.TotalCols; col++)
+                {
+                    if (this.field[row, col].Symbol == Symbol.Empty)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         private int GetArrayRowPosition(Position position)
         {
             return this.TotalRows - position.Row;

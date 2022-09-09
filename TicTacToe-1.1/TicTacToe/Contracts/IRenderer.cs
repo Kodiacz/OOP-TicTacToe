@@ -2,16 +2,18 @@
 {
     public interface IRenderer
     {
-        void RenderMainMenu();
-
-        void RenderField(IField field);
+        void AddNewLine();
 
         void AnnounceWinner(IPlayer player);
 
         void Clear();
 
-        void AddNewLine();
-
         void PrintPlayerTurn(IPlayer player);
+
+        void RenderField(IField field);
+
+        void RenderMainMenu();
+
+        void PrintDraw();
     }
 }
