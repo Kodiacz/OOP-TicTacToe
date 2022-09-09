@@ -16,14 +16,15 @@
             GameInputs input = new GameInputs();
             IRenderer renderer = new ConsoleRenderer();
             ITicTacToePlayerVsPlayerEngine engine = new TicTacToePlayerVsPlayerEngine(renderer, input);
-            renderer.RenderMainMenu();
-            engine.PrintFieldOnConsole();
-            Position position = input.GetPositinInput();
-            engine.MoveFirstPlayer(position);
+            //renderer.RenderMainMenu();
+            //engine.PrintFieldOnConsole();
+            //Position position = input.GetPositinInput();
+            //engine.MoveFirstPlayer(position);
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
-            engine.PrintFieldOnConsole();
+            //engine.PrintFieldOnConsole();
+            engine.Play();
         }
     }
 }

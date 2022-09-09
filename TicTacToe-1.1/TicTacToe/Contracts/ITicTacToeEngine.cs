@@ -4,7 +4,7 @@ namespace TicTacToe.Contracts
 {
     public interface ITicTacToeEngine
     {
-        void CheckForWiner();
+        bool CheckForWiner(IPlayer player);
 
         void PrintFieldOnConsole();
     }

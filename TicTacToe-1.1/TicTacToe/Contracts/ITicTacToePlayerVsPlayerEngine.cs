@@ -13,5 +13,7 @@ namespace TicTacToe.Contracts
         void MoveFirstPlayer(Position position);
 
         void MoveSecondPlayer(Position position);
+
+        void Play();
     }
 }

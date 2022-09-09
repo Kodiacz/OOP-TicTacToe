@@ -65,5 +65,15 @@
 
             Console.WriteLine(Logo);
         }
+
+        public void AnnounceWinner(IPlayer player)
+        {
+            Console.WriteLine($"{player.Name} wins");
+        }
+
+        public void Clear()
+        {
+            Console.Clear();
+        }
     }
 }

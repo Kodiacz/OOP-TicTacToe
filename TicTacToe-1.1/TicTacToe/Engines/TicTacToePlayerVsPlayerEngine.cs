@@ -30,13 +30,17 @@
 
         public IPlayer SecondPlayer { get; private set; }
 
-        public void CheckForWiner()
+        public bool CheckForWiner(IPlayer player)
         {
-            if (CheckRowForMatch() || CheckColumnForMatch() ||
-                CheckLeftRightDiagonalForMatch() || CheckLeftRightDiagonalForMatch())
+            if (CheckRowForMatch(player.Symbol) || CheckColumnForMatch(player.Symbol) ||
+                CheckRightLeftDiagonalForMatch(player.Symbol) || CheckLeftRightDiagonalForMatch(player.Symbol))
             {
                 // TODO: Right Logic:
+                this.renderer.AnnounceWinner(player);
+                return true;
             }
+
+            return false;
         }
 
         public void MoveFirstPlayer(Position position)
@@ -57,6 +61,38 @@
             this.Field.MarkSymbol(mark, position);
         }
 
+        public void Play()
+        {
+            int totalMovesOnField = this.Field.TotalRows * this.Field.TotalCols;
+
+            for (int i = 0; i < totalMovesOnField; i++)
+            {
+                this.renderer.Clear();
+                this.renderer.RenderField(this.Field);
+                Position position = inputs.GetPositinInput();
+
+                if (i % 2 == 0)
+                {
+                    MoveFirstPlayer(position);
+                    
+                    if (CheckForWiner(this.FirstPlayer))
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    MoveSecondPlayer(position);
+
+                    if (CheckForWiner(this.SecondPlayer))
+                    {
+                        break;
+                    }
+                }
+
+            }
+        }
+
         public void PrintFieldOnConsole()
         {
             renderer.RenderField(this.Field);
@@ -68,14 +104,62 @@
             this.SecondPlayer = players[1];
         }
 
-        private bool CheckRowForMatch()
+        private bool CheckRowForMatch(Symbol symbol)
         {
             IMark[,] field = this.Field.GetField;
 
-            for (int row = 0; row < this.Field.TotalRows; row++)
+            for (int row = 0; row < field.GetLength(0); row++)
             {
+                for (int col = 0; col < field.GetLength(1); col++)
+                {
+                    if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
+                    {
+                        break;
+                    }
+                    else if (col == field.GetLength(1) - 1)
+                    {
+                        return true;
+                    }
+                    
+                }
+            }
 
-                if (field[row, 0].Symbol == field[row, 1].Symbol && field[row, 0].Symbol == field[row, 2].Symbol)
+            return false;
+        }
+
+        private bool CheckColumnForMatch(Symbol symbol)
+        {
+            IMark[,] field = this.Field.GetField;
+
+            for (int col = 0; col < field.GetLength(1); col++)
+            {
+                for (int row = 0; row < field.GetLength(0); row++)
+                {
+                    if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
+                    {
+                        break;
+                    }
+                    else if (row == field.GetLength(0) - 1)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private bool CheckLeftRightDiagonalForMatch(Symbol symbol)
+        {
+            IMark[,] field = this.Field.GetField;
+
+            for (int i = 0; i < field.GetLength(0); i++)
+            {
+                if (field[i, i].Symbol == Symbol.Empty || field[i, i].Symbol != symbol) 
+                {
+                    break;
+                }
+                else if (i == field.GetLength(0) - 1)
                 {
                     return true;
                 }
@@ -84,40 +168,20 @@
             return false;
         }
 
-        private bool CheckColumnForMatch()
+        private bool CheckRightLeftDiagonalForMatch(Symbol symbol)
         {
             IMark[,] field = this.Field.GetField;
 
-            for (int col = 0; col < this.Field.TotalCols; col++)
+            for (int row = 0, col = field.GetLength(1) - 1; row < field.GetLength(1); row++, col--)
             {
-                if (field[0, col].Symbol == field[1, col].Symbol && field[0, col].Symbol == field[2, col].Symbol)
+                if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
+                {
+                    break;
+                }
+                else if (row == field.GetLength(0) - 1)
                 {
                     return true;
                 }
-            }
-
-            return false;
-        }
-
-        private bool CheckLeftRightDiagonalForMatch()
-        {
-            IMark[,] field = this.Field.GetField;
-
-            if (field[0, 0].Symbol == field[1, 1].Symbol && field[0, 0].Symbol == field[2, 2].Symbol)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool CheckRightLeftDiagonalForMatch()
-        {
-            IMark[,] field = this.Field.GetField;
-
-            if (field[0, 2].Symbol == field[1, 1].Symbol && field[0, 2].Symbol == field[2, 0].Symbol)
-            {
-                return true;
             }
 
             return false;

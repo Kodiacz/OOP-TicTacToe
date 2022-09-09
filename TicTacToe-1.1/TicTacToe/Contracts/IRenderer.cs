@@ -5,5 +5,9 @@
         void RenderMainMenu();
 
         void RenderField(IField field);
+
+        void AnnounceWinner(IPlayer player);
+
+        void Clear();
     }
 }
