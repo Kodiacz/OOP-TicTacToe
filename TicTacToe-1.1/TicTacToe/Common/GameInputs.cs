@@ -32,11 +32,12 @@
 
         public Position GetPositinInput()
         {
-            Console.Write("Choose row for position: ");
-            int row = int.Parse(Console.ReadLine());
+            Console.Write("Choose position: ");
+            string input = Console.ReadLine();
 
-            Console.Write("Choose column for position: ");
-            char column = char.Parse(Console.ReadLine());
+            int row = int.Parse(input[0].ToString());
+
+            char column = input[1];
 
             Position position = new Position(row, column);
             return position;
