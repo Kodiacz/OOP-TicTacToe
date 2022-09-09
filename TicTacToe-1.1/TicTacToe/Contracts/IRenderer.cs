@@ -11,5 +11,7 @@
         void Clear();
 
         void AddNewLine();
+
+        void PrintPlayerTurn(IPlayer player);
     }
 }

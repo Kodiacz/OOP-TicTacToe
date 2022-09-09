@@ -70,5 +70,11 @@
         {
             Console.WriteLine();
         }
+
+        public void PrintPlayerTurn(IPlayer player)
+        {
+            Console.WriteLine($"{player.Name}'s Turn");
+
+        }
     }
 }

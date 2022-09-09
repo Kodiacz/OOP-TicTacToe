@@ -70,12 +70,13 @@
             {
                 this.renderer.Clear();
                 this.renderer.RenderField(this.Field);
-                Position position = inputs.GetPositinInput();
 
                 if (i % 2 == 0)
                 {
+                    renderer.PrintPlayerTurn(this.FirstPlayer);
+                    Position position = inputs.GetPositinInput();
                     MoveFirstPlayer(position);
-                    
+
                     if (CheckForWiner(this.FirstPlayer))
                     {
                         break;
@@ -83,6 +84,8 @@
                 }
                 else
                 {
+                    renderer.PrintPlayerTurn(this.SecondPlayer);
+                    Position position = inputs.GetPositinInput();
                     MoveSecondPlayer(position);
 
                     if (CheckForWiner(this.SecondPlayer))
@@ -121,7 +124,7 @@
                     {
                         return true;
                     }
-                    
+
                 }
             }
 
@@ -156,7 +159,7 @@
 
             for (int i = 0; i < field.GetLength(0); i++)
             {
-                if (field[i, i].Symbol == Symbol.Empty || field[i, i].Symbol != symbol) 
+                if (field[i, i].Symbol == Symbol.Empty || field[i, i].Symbol != symbol)
                 {
                     break;
                 }
