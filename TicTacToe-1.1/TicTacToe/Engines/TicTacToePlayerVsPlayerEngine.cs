@@ -34,18 +34,18 @@
         {
             this.renderer.AddNewLine();
 
-            if (CheckRowForMatch(player.Symbol) || CheckColumnForMatch(player.Symbol) ||
-                CheckRightLeftDiagonalForMatch(player.Symbol) || CheckLeftRightDiagonalForMatch(player.Symbol))
+            if (EngineLogic.CheckRowForMatch(player.Symbol, this.Field) || EngineLogic.CheckColumnForMatch(player.Symbol, this.Field) ||
+               EngineLogic.CheckRightLeftDiagonalForMatch(player.Symbol, this.Field) || EngineLogic.CheckLeftRightDiagonalForMatch(player.Symbol, this.Field))
             {
                 this.renderer.AnnounceWinner(player);
+                this.renderer.RenderField(this.Field);
                 return true;
             }
             else if (this.Field.IsFull())
             {
                 this.renderer.PrintDraw();
+                this.renderer.RenderField(this.Field);
             }
-
-            this.renderer.RenderField(this.Field);
 
             return false;
         }
@@ -114,87 +114,87 @@
             this.SecondPlayer = players[1];
         }
 
-        private bool CheckRowForMatch(Symbol symbol)
-        {
-            IMark[,] field = this.Field.GetField;
+        //private bool CheckRowForMatch(Symbol symbol)
+        //{
+        //    IMark[,] field = this.Field.GetField;
 
-            for (int row = 0; row < field.GetLength(0); row++)
-            {
-                for (int col = 0; col < field.GetLength(1); col++)
-                {
-                    if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
-                    {
-                        break;
-                    }
-                    else if (col == field.GetLength(1) - 1)
-                    {
-                        return true;
-                    }
+        //    for (int row = 0; row < field.GetLength(0); row++)
+        //    {
+        //        for (int col = 0; col < field.GetLength(1); col++)
+        //        {
+        //            if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
+        //            {
+        //                break;
+        //            }
+        //            else if (col == field.GetLength(1) - 1)
+        //            {
+        //                return true;
+        //            }
 
-                }
-            }
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        private bool CheckColumnForMatch(Symbol symbol)
-        {
-            IMark[,] field = this.Field.GetField;
+        //private bool CheckColumnForMatch(Symbol symbol)
+        //{
+        //    IMark[,] field = this.Field.GetField;
 
-            for (int col = 0; col < field.GetLength(1); col++)
-            {
-                for (int row = 0; row < field.GetLength(0); row++)
-                {
-                    if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
-                    {
-                        break;
-                    }
-                    else if (row == field.GetLength(0) - 1)
-                    {
-                        return true;
-                    }
-                }
-            }
+        //    for (int col = 0; col < field.GetLength(1); col++)
+        //    {
+        //        for (int row = 0; row < field.GetLength(0); row++)
+        //        {
+        //            if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
+        //            {
+        //                break;
+        //            }
+        //            else if (row == field.GetLength(0) - 1)
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        private bool CheckLeftRightDiagonalForMatch(Symbol symbol)
-        {
-            IMark[,] field = this.Field.GetField;
+        //private bool CheckLeftRightDiagonalForMatch(Symbol symbol)
+        //{
+        //    IMark[,] field = this.Field.GetField;
 
-            for (int i = 0; i < field.GetLength(0); i++)
-            {
-                if (field[i, i].Symbol == Symbol.Empty || field[i, i].Symbol != symbol)
-                {
-                    break;
-                }
-                else if (i == field.GetLength(0) - 1)
-                {
-                    return true;
-                }
-            }
+        //    for (int i = 0; i < field.GetLength(0); i++)
+        //    {
+        //        if (field[i, i].Symbol == Symbol.Empty || field[i, i].Symbol != symbol)
+        //        {
+        //            break;
+        //        }
+        //        else if (i == field.GetLength(0) - 1)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        private bool CheckRightLeftDiagonalForMatch(Symbol symbol)
-        {
-            IMark[,] field = this.Field.GetField;
+        //private bool CheckRightLeftDiagonalForMatch(Symbol symbol)
+        //{
+        //    IMark[,] field = this.Field.GetField;
 
-            for (int row = 0, col = field.GetLength(1) - 1; row < field.GetLength(1); row++, col--)
-            {
-                if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
-                {
-                    break;
-                }
-                else if (row == field.GetLength(0) - 1)
-                {
-                    return true;
-                }
-            }
+        //    for (int row = 0, col = field.GetLength(1) - 1; row < field.GetLength(1); row++, col--)
+        //    {
+        //        if (field[row, col].Symbol == Symbol.Empty || field[row, col].Symbol != symbol)
+        //        {
+        //            break;
+        //        }
+        //        else if (row == field.GetLength(0) - 1)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
     }
 }
