@@ -5,11 +5,13 @@
 
     public class GameInputs
     {
-        public ICollection<IPlayer> GetPlayers(int numberOfPlayers)
+        private const int StandartNumberOfPlayers = 2;
+
+        public ICollection<IPlayer> GetPlayers()
         {
             List<IPlayer> players = new List<IPlayer>();
 
-            for (int i = 1; i <= numberOfPlayers; i++)
+            for (int i = 1; i <= StandartNumberOfPlayers; i++)
             {
                 string numberSuffix = i == 1 ? "-st" : "-nd";
                 Console.Write($"Choose {i}{numberSuffix} player name: ");

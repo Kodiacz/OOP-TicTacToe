@@ -20,7 +20,7 @@
             this.Field = new Field(StandartTicTacToeFildRowAndColumn, StandartTicTacToeFildRowAndColumn);
             this.renderer = renderer;
             this.inputs = inputs;
-            var players = inputs.GetPlayers(StandartNumberOfPlayers).ToList();
+            var players = this.inputs.GetPlayers().ToList();
             CreatePlayers(players);
         }
 
@@ -30,7 +30,7 @@
 
         public IPlayer SecondPlayer { get; private set; }
 
-        public bool CheckForWiner(IPlayer player)
+        public bool CheckForWinner(IPlayer player)
         {
             this.renderer.AddNewLine();
 
@@ -83,7 +83,7 @@
                     Position position = inputs.GetPositinInput();
                     MoveFirstPlayer(position);
 
-                    if (CheckForWiner(this.FirstPlayer))
+                    if (CheckForWinner(this.FirstPlayer))
                     {
                         break;
                     }
@@ -94,7 +94,7 @@
                     Position position = inputs.GetPositinInput();
                     MoveSecondPlayer(position);
 
-                    if (CheckForWiner(this.SecondPlayer))
+                    if (CheckForWinner(this.SecondPlayer))
                     {
                         break;
                     }

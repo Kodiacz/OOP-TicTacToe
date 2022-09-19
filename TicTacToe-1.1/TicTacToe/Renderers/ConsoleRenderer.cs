@@ -10,6 +10,32 @@
         private const string StringFormatSymbolX = "|X|";
         private const string StringFormatSymbolO = "|O|";
 
+        public void AddNewLine()
+        {
+            Console.WriteLine();
+        }
+
+        public void AnnounceWinner(IPlayer player)
+        {
+            Console.WriteLine($"{player.Name} wins");
+        }
+
+        public void Clear()
+        {
+            Console.Clear();
+        }
+
+        public void PrintDraw()
+        {
+            Console.WriteLine("Draw");
+        }
+
+        public void PrintPlayerTurn(IPlayer player)
+        {
+            Console.WriteLine($"{player.Name}'s Turn");
+
+        }
+
         public void RenderField(IField field)
         {
             for (int row = 0; row < field.TotalRows; row++)
@@ -48,38 +74,7 @@
 
         public void RenderMainMenu()
         {
-            ConsoleHelper.CenterConsoleCursor(Logo);
-
-            // TODO: add main menu
-            Thread.Sleep(1000);
-
             Console.WriteLine(Logo);
-        }
-
-        public void AnnounceWinner(IPlayer player)
-        {
-            Console.WriteLine($"{player.Name} wins");
-        }
-
-        public void Clear()
-        {
-            Console.Clear();
-        }
-
-        public void AddNewLine()
-        {
-            Console.WriteLine();
-        }
-
-        public void PrintPlayerTurn(IPlayer player)
-        {
-            Console.WriteLine($"{player.Name}'s Turn");
-
-        }
-
-        public void PrintDraw()
-        {
-            Console.WriteLine("Draw");
         }
     }
 }
