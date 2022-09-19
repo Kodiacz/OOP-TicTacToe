@@ -7,5 +7,7 @@ namespace TicTacToe.Contracts
         bool CheckForWinner(IPlayer player);
 
         void PrintFieldOnConsole();
+
+        public void Play();
     }
 }

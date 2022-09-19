@@ -15,7 +15,8 @@
             IField field = new Field(3, 3);
             GameInputs input = new GameInputs();
             IRenderer renderer = new ConsoleRenderer();
-            ITicTacToePlayerVsPlayerEngine engine = new TicTacToePlayerVsPlayerEngine(renderer, input);
+            //ITicTacToePlayerVsPlayerEngine engine = new TicTacToePlayerVsPlayerEngine(renderer, input);
+            ITicTacToePlayerVsComputerEngine engine = new TicTacToePlayerVsComputerEngine(renderer, input);
             //renderer.RenderMainMenu();
             //engine.PrintFieldOnConsole();
             //Position position = input.GetPositinInput();
