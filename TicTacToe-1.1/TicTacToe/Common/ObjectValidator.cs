@@ -44,6 +44,10 @@ namespace TicTacToe.Common
             {
                 throw new InvalidDataException(InvalidMarkErrorMessage);
             }
+        }
+
+        public static void CheckSymbol()
+        {
 
         }
     }
