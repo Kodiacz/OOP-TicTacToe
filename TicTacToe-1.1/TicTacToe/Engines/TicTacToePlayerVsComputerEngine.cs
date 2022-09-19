@@ -10,34 +10,33 @@ namespace TicTacToe.Engines
         private GameInputs input;
         private IRenderer renderer;
 
+        private IField field;
+        private IPlayer player;
+        private IPlayer npc;
+
         public TicTacToePlayerVsComputerEngine(IRenderer renderer, GameInputs input)
         {
-            this.Field = new Field(GlobalConstants.StandartRowLengthOnField, GlobalConstants.StandartRowLengthOnField);
+            this.field = new Field(GlobalConstants.StandartRowLengthOnField, GlobalConstants.StandartRowLengthOnField);
             this.renderer = renderer;
             this.input = input;
+            var player = input.GetPlayer();
         }
-
-        public IField Field { get; private set; }
-
-        public IPlayer Player { get; private set; }
-
-        public IPlayer NPC { get; private set; }
 
         public bool CheckForWinner(IPlayer player)
         {
             this.renderer.AddNewLine();
 
-            if (EngineLogic.CheckRowForMatch(player.Symbol, this.Field) || EngineLogic.CheckColumnForMatch(player.Symbol, this.Field) ||
-               EngineLogic.CheckRightLeftDiagonalForMatch(player.Symbol, this.Field) || EngineLogic.CheckLeftRightDiagonalForMatch(player.Symbol, this.Field))
+            if (EngineLogic.CheckRowForMatch(player.Symbol, this.field) || EngineLogic.CheckColumnForMatch(player.Symbol, this.field) ||
+               EngineLogic.CheckRightLeftDiagonalForMatch(player.Symbol, this.field) || EngineLogic.CheckLeftRightDiagonalForMatch(player.Symbol, this.field))
             {
                 this.renderer.AnnounceWinner(player);
-                this.renderer.RenderField(this.Field);
+                this.renderer.RenderField(this.field);
                 return true;
             }
-            else if (this.Field.IsFull())
+            else if (this.field.IsFull())
             {
                 this.renderer.PrintDraw();
-                this.renderer.RenderField(this.Field);
+                this.renderer.RenderField(this.field);
             }
 
             return false;
@@ -45,7 +44,9 @@ namespace TicTacToe.Engines
 
         public void MoveNPC(Position position)
         {
-            throw new NotImplementedException();
+            Random random = new Random();
+
+
         }
 
         public void MovePlayer(Position position)

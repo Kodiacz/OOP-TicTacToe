@@ -9,7 +9,6 @@
     public class TicTacToePlayerVsPlayerEngine : ITicTacToePlayerVsPlayerEngine
     {
         private const int StandartTicTacToeFildRowAndColumn = 3;
-        private const int StandartNumberOfPlayers = 2;
 
         private readonly IRenderer renderer;
         private readonly GameInputs inputs;
